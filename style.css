@@ -1,0 +1,447 @@
+*{
+/* Jab tum lagati ho, to wo sari default spacing hata deta hai, aur sab kuch screen ke bilkul edge se start hota hai. */
+    margin:0;
+    padding: 0;
+    box-sizing: border-box; /* with box-sizing: border-box the padding and border are included inside the width and height*/
+}
+
+body{
+/* is ka matlab hai ke poori screen ka background color ye soft blue shade ho jaye ga */
+background-image: url('background.jpg'); 
+  background-size: cover;
+  background-position: right;
+  
+    background-color:rgb(184, 216, 243);
+     min-height: 100vh; /* Better than fixed height */
+}
+
+.boxes{
+/* display: flex; → Ye container ko Flexbox bana deta hai ...flex-direction: row; → Child elements left to right arrange honge.
+ (Yani agar tumhare paas 3 boxes hain, to wo horizontal line mein side-by-side dikhai denge.) */
+    display:flex; 
+    flex-direction:row;
+    padding: 0.5rem; /* Added padding for mobile */
+}
+
+.bigbox,.smallbox{
+    height:95vh;
+    background-color: white;
+    margin-top: 1rem;
+}
+
+.bigbox{
+/* .bigbox is the reference container.toggle ab uske andar fixed jagah par place hoga Chahe screen kitni bhi badi ho, toggle hamesha 
+.bigbox ke top-right corner mein hi rahega. */
+    position: relative;
+    width:38vh;
+    border-radius: 20px;
+    min-width: 280px; /*min-width sets the minimum width an element can shrink to. No matter how small the screen gets, the element won’t 
+    go below this width.*/
+}
+
+.smallbox{
+    width:10vh;
+    margin-left: 1.5rem;
+    border-radius: 12px;
+    min-width: 60px; /* Minimum width for mobile */
+}
+
+.logob,.logos{
+    height: 40px;
+    width: 40px;
+    border-radius: 25%;
+    background-color: black;
+    margin-top: 1rem;
+    background-image: url('logo.png'); 
+/* Image ko poori container ke andar fit kar deta hai — bina crop kiye.Image repeat nahi hoti — sirf ek baar dikhai deti hai.Image ko 
+center mein place karta hai — horizontally aur vertically. */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+/* Agar background-size: contain; image ko poori container ke andar fit karta hai,:background-size: cover; ka matlab hai:
+Image poori container ko cover karegi, chahe thodi si crop ho jaye. */
+}
+
+ .logob{
+    margin-left: 1rem; 
+}
+
+ .logos{
+    margin-left: 0.5rem;
+   
+}
+
+.profile {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+}
+
+.text h2 {
+    margin-top:1rem;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.text p {
+    font-size: 10px;
+    color: #bbb;
+}
+ 
+.toggleicon{
+    position: absolute; 
+    transform: translateY(-50%);  /* Icons ko vertically center kiya gaya (based on their own height). */
+    cursor: pointer;
+    color: black;
+}
+
+.toggleicon { 
+    left:250px;
+    top: 8%;
+    font-size: 20px; 
+}
+
+
+.search,.searchicon{
+    display: flex;
+    align-items: center;
+    height:6.5vmin;
+    border-radius: 10px;
+    padding: 0.15rem;
+    background-color:lightgrey;
+    margin-top: 2rem;
+}
+
+.search{
+    gap :10px;
+    width:32.5vmin;
+    margin-left: 1rem;
+}
+
+.search:hover{
+  border: 2px solid black;
+}
+
+.searchicon{
+    justify-content: center;
+    width:6vmin;
+    margin-left: 0.65rem;
+}
+
+.searchicon:hover{
+  border: 2px solid black;
+}
+
+.bigbox i:hover{
+  transform: scale(1.5);    /* Icon 1.5 times bada ho jata hai. */
+/* Ye ensure karta hai ke zoom smoothly ho — 0.3 seconds mein.
+ease ka matlab: animation thodi slow start aur slow end hoti hai — natural feel deta hai. */
+  transition: transform 0.2s ease;
+}
+
+ .dashicon:hover,.revicon:hover,.notificationicon:hover,.supporticon:hover, .likeicon:hover,.settingicon:hover,.logouticon:hover { 
+    transform: scale(1.5); 
+     transition: transform 0.3s ease;
+}
+
+.dashboard{
+    display: flex;
+    align-items: center;
+    gap :10px;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.dashicon{
+    margin-left: 1.25rem;
+    margin-top: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.revenue{
+    display: flex;
+    align-items: center;
+    gap :10px;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.revicon{
+     margin-left: 1.25rem;
+    margin-top: 2rem;
+}
+
+.notifications{
+    display: flex;
+    align-items: center;
+    gap :10px;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.notificationicon{
+     margin-left: 1.25rem;
+    margin-top: 2rem;
+}
+
+.support{
+     display: flex;
+    align-items: center;
+    gap :10px;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.supporticon{
+     margin-left: 1.25rem;
+    margin-top: 2rem;
+}
+
+.likes{
+    display: flex;
+    align-items: center;
+    gap :10px;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.likeicon{
+    margin-left: 1.25rem;
+    margin-top: 2rem;
+}
+
+.settings{
+    display: flex;
+    align-items: center;
+    gap :10px;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.settingicon{
+     margin-left: 1.25rem;
+    margin-top: 2rem;
+}
+
+.bottom-line {
+    border-top: 2px solid #e0e0e0; /*Ye element ke upar ek line draw karta hai.*/
+    margin-top: 1rem;
+}
+
+.logout{
+    display: flex;
+    align-items: center;
+    gap :10px;
+    margin-left: 1rem;
+    margin-top: 1rem; 
+}
+
+.logouticon{
+      margin-left: 1.25rem;
+    margin-top: 1rem;
+}
+
+.mode,.modeicon{
+    display: flex;
+    align-items: center;
+    height:6.5vmin;
+    border-radius: 10px;
+    padding: 0.15rem;
+    background-color:lightgrey;
+    margin-top: 1rem;
+}
+
+.mode{
+    gap :10px;
+    width:32.5vmin;
+    margin-left: 1rem;
+}
+
+.modeicon{
+    justify-content: center; 
+    width:6vmin;
+    margin-left: 0.65rem;
+}
+
+ .mode .fa-toggle-off{
+    margin-left: auto;
+    margin-right: 1rem;  
+}  
+
+.bigbox.collapsed { /* jab tum sidebar ko band karna chaho, ye class lagti hai.*/
+  width: 0; /* Box ka width bilkul zero ho jata hai — matlab wo gayab lagta hai. */
+  overflow: hidden; /* Agar box ke andar koi content ho, wo bhi chhup jata hai.Ye ensure karta hai ke scroll ya extra content visible na ho. */
+  transition: width 0.3s ease;
+  padding: 0;
+}
+
+.smallbox {
+  transition: all 0.3s ease;
+  display: none; /* element default mein chhupa hota hai */
+}
+
+.smallbox.show {
+   display: block; /*Isse element visible ho jata hai Matlab: wo box ab dikhai dene lagta hai. */
+} 
+
+@keyframes bounceRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  30% {
+    transform: rotate(90deg) scale(1.2);
+  }
+  60% {
+    transform: rotate(150deg) scale(0.95);
+  }
+  100% {
+    transform: rotate(180deg) scale(1);
+  }
+}
+
+.toggleicon.bounce-rotate {
+  animation: bounceRotate 0.2s ease-out forwards;
+}
+
+
+/* Tablets and small laptops */
+@media screen and (max-width: 768px) {
+    .bigbox {
+        width: 300px; /* Fixed width instead of vh */
+        min-width: 250px;
+    }
+    
+    .smallbox {
+        width: 60px;
+        min-width: 50px;
+        margin-left: 1rem;
+    }
+    
+    .toggleicon {
+        left: 180px; /* Adjusted for smaller width */
+    }
+    
+    
+    .search, .mode {
+        width: 85%; /* Percentage based width */
+        height: 45px; /* Fixed height for consistency */
+    }
+    
+    .searchicon, .modeicon {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Mobile phones */
+@media screen and (max-width: 480px) {
+    .boxes {
+        padding: 0.25rem; /* Reduced padding */
+    }
+    
+    .bigbox {
+        width: 90vw; /* Use viewport width for mobile */
+        min-width: 280px;
+        max-width: 320px;
+    }
+    
+    .smallbox {
+        width: 50px;
+        margin-left: 0.5rem;
+    }
+    
+    .bigbox, .smallbox {
+        height: 90vh; /* Slightly shorter for mobile */
+        margin-top: 0.5rem;
+    }
+    
+    .toggleicon {
+        left: calc(100% - 40px); /* Dynamic positioning */
+        font-size: 18px;
+    }
+    
+    .text h2 {
+        font-size: 14px; /* Smaller text for mobile */
+    }
+    
+    .text p {
+        font-size: 9px;
+    }
+    
+    .search, .mode {
+        width: 90%; /* More width for mobile */
+        height: 40px;
+        margin-left: 0.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .searchicon, .modeicon {
+        width: 40px;
+        height: 40px;
+        margin-left: 0.5rem;
+    }
+    
+    /* Adjust menu items spacing for mobile */
+    .dashboard, .revenue, .notifications, .support, .likes, .settings {
+        margin-top: 1.5rem;
+        margin-left: 0.5rem;
+    }
+    
+    .dashicon, .revicon, .notificationicon, .supporticon, .likeicon, .settingicon {
+        margin-left: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .logout {
+        margin-left: 0.5rem;
+    }
+    
+    .logouticon {
+        margin-left: 1rem;
+    }
+    
+    /* Reduce hover effects on mobile for better performance */
+    .bigbox i:hover,
+    .dashicon:hover,.revicon:hover,.notificationicon:hover,.supporticon:hover, .likeicon:hover,.settingicon:hover,.logouticon:hover {
+        transform: scale(1.2); /* Smaller scale for mobile */
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 320px) {
+    .bigbox {
+        width: 95vw;
+        min-width: 260px;
+    }
+    
+    .text h2 {
+        font-size: 13px;
+    }
+    
+    .search, .mode {
+        width: 88%;
+        height: 38px;
+    }
+    
+    .searchicon, .modeicon {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .bigbox, .smallbox {
+        height: 85vh; /* Shorter height for landscape */
+    }
+    
+    .dashboard, .revenue, .notifications, .support, .likes, .settings {
+        margin-top: 1rem; /* Reduced spacing */
+    }
+    
+    .dashicon, .revicon, .notificationicon, .supporticon, .likeicon, .settingicon {
+        margin-top: 1rem;
+    }
+}
+
+
